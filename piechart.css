@@ -1,0 +1,48 @@
+.pie {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.pie .master,
+.pie .slice,
+.pie .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 100%;
+}
+
+.pie .master {
+    background: #60F2FF;
+}
+
+.pie .inner {
+    background: whitesmoke;
+}
+
+.pie .inner .content {
+    font-size: 12px;
+}
+
+.pie .cover {
+    background: #fff;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 100%;
+
+    .content {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 16px;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        margin-top: -10px;
+    }
+}
