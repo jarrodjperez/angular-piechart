@@ -6,7 +6,10 @@ myApp.directive('piechart', function($window) {
 		link: function(scope, elem, attrs) {
 			scope.size = Number(attrs.size);
 			scope.value = attrs.value;
-			scope.label = attrs.label;
+
+			if(scope.value > 50) {
+				scope.overHalf = true;
+			}
 
 			scope.pieStyle = function () {
 				return {
@@ -22,7 +25,21 @@ myApp.directive('piechart', function($window) {
 			};
 
 			scope.innerStyle = function () {
-				var degree = 360 - (360 * (scope.value / 100));
+				var value = scope.value > 50 ? 50 : scope.value;
+				var degree = 360 - (360 * (value / 100));
+
+				return {
+					'-webkit-transform': 'rotate(' + degree + 'deg)',
+					'transform': 'rotate(' + degree + 'deg)',
+					'clip': 'rect('+0+'px,'+ scope.size/2 +'px,' + scope.size + 'px,'+0+'px)'
+				}
+			};
+
+			scope.inner2Style = function () {
+				var value = scope.value - 50;
+				var degree = 360 - (360 * (value / 100));
+
+				console.log(degree);
 
 				return {
 					'-webkit-transform': 'rotate(' + degree + 'deg)',

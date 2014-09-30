@@ -6,6 +6,7 @@
 
 .pie .master,
 .pie .slice,
+.pie .slice2,
 .pie .inner {
     position: absolute;
     top: 0;
@@ -15,16 +16,12 @@
     border-radius: 100%;
 }
 
-.pie .master {
-    background: #60F2FF;
+.pie .slice {
+    transform: rotate(180deg);
 }
 
-.pie .inner {
-    background: whitesmoke;
-}
-
-.pie .inner .content {
-    font-size: 12px;
+.pie .slice2 {
+    transform: rotate(0deg);
 }
 
 .pie .cover {
@@ -35,14 +32,14 @@
     bottom: 5px;
     right: 5px;
     border-radius: 100%;
+}
 
-    .content {
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 16px;
-        position: absolute;
-        width: 100%;
-        top: 50%;
-        margin-top: -10px;
-    }
+.pie .cover .content {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -10px;
 }
