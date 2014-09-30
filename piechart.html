@@ -1,9 +1,9 @@
-<div class="pie pie1" ng-style="pieStyle()">
+<div class="pie" ng-style="pieStyle()">
 	<div class="master"></div>
 	<div class="slice slice-1" ng-style="setStyle(2)">
 		<div class="inner" ng-style="setStyle(1, 1)"></div>
 	</div>
-	<div class="slice slice-2" ng-style="setStyle(1)">
+	<div ng-show="value > 50" class="slice slice-2" ng-style="setStyle(1)">
 		<div class="inner" ng-style="setStyle(2, 2)"></div>
 	</div>
 	<div ng-show="label" class="cover">

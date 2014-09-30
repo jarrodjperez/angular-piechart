@@ -27,7 +27,7 @@ myApp.directive('piechart', function($window) {
 				if(transform) {
 					if(transform === 1) {
 						var value = scope.value > 50 ? 50 : scope.value;
-						var degree = 360 - (360 * (value / 100));
+						var degree = 180 - (360 * (value / 100));
 						
 						styleObj.transform = 'rotate(' + degree + 'deg)';
 					} else {
