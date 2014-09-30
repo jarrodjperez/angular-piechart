@@ -8,10 +8,6 @@ myApp.directive('piechart', function($window) {
 			scope.value = attrs.value;
 			scope.label = attrs.label;
 
-			if(scope.value > 50) {
-				scope.overHalf = true;
-			}
-
 			scope.pieStyle = function () {
 				return {
 					height: scope.size + 'px',
@@ -19,34 +15,30 @@ myApp.directive('piechart', function($window) {
 				}
 			};
 
-			scope.sliceStyle = function () {
-				return {
-					clip: 'rect('+0+'px,'+ scope.size +'px,' + scope.size + 'px,' + scope.size/2 + 'px)'
+			scope.setStyle = function(clip, transform) {
+				var styleObj = {};
+				
+				if(clip === 1){
+					styleObj.clip = 'rect(0,'+ scope.size/2 + 'px,'+ scope.size +'px, 0)';
+				} else {
+					styleObj.clip = 'rect(0,'+ scope.size + 'px,'+ scope.size +'px,' +scope.size/2 + 'px)';
 				}
-			};
 
-			scope.innerStyle = function () {
-				var value = scope.value > 50 ? 50 : scope.value;
-				var degree = 360 - (360 * (value / 100));
+				if(transform) {
+					if(transform === 1) {
+						var value = scope.value > 50 ? 50 : scope.value;
+						var degree = 360 - (360 * (value / 100));
+						
+						styleObj.transform = 'rotate(' + degree + 'deg)';
+					} else {
+						var totalDegrees = 360 * scope.value / 100;
+						var leftOverDegree = totalDegrees - 180;
 
-				return {
-					'-webkit-transform': 'rotate(' + degree + 'deg)',
-					'transform': 'rotate(' + degree + 'deg)',
-					'clip': 'rect('+0+'px,'+ scope.size/2 +'px,' + scope.size + 'px,'+0+'px)'
+						styleObj.transform = 'rotate(' + leftOverDegree + 'deg)';
+					}
 				}
-			};
-
-			scope.inner2Style = function () {
-				var value = scope.value - 50;
-				var degree = 360 - (360 * (value / 100));
-
-				console.log(degree);
-
-				return {
-					'-webkit-transform': 'rotate(' + degree + 'deg)',
-					'transform': 'rotate(' + degree + 'deg)',
-					'clip': 'rect('+0+'px,'+ scope.size/2 +'px,' + scope.size + 'px,'+0+'px)'
-				}
+				
+				return styleObj;
 			};
 		}
 	}

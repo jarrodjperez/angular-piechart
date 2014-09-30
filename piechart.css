@@ -1,45 +1,22 @@
 .pie {
-    position: relative;
-    display: inline-block;
-    margin: 5px;
+  position: relative;
+  margin: 1em;
 }
 
-.pie .master,
-.pie .slice,
-.pie .slice2,
-.pie .inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 100%;
+.master, .inner {
+  border: 5px solid whitesmoke;
 }
 
-.pie .slice {
-    transform: rotate(180deg);
+.inner {
+  border-color: rgb(255, 0, 235);
 }
 
-.pie .slice2 {
-    transform: rotate(0deg);
-}
-
-.pie .cover {
-    background: #fff;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    bottom: 5px;
-    right: 5px;
-    border-radius: 100%;
-}
-
-.pie .cover .content {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 16px;
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    margin-top: -10px;
+.master, .slice, .inner {
+  border-radius: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
