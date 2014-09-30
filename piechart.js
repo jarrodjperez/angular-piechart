@@ -6,6 +6,7 @@ myApp.directive('piechart', function($window) {
 		link: function(scope, elem, attrs) {
 			scope.size = Number(attrs.size);
 			scope.value = attrs.value;
+			scope.label = attrs.label;
 
 			if(scope.value > 50) {
 				scope.overHalf = true;
