@@ -6,7 +6,10 @@
 	<div ng-show="value > 50" class="slice slice-2" ng-style="setStyle(1)">
 		<div class="inner" ng-style="setStyle(2, 2)"></div>
 	</div>
-	<div ng-show="label" class="cover">
-		<div class="content">{{label}}</div>
+	<div ng-show="label || icon" class="cover">
+		<div class="content">
+			<i ng-show="icon" ng-class="icon"></i>
+			{{label}}
+		</div>
 	</div>
 </div>
