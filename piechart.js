@@ -2,11 +2,11 @@ myApp.directive('piechart', function($interval) {
 	return {
 		restrict: 'E',
 		scope: {
-			value: '='
+			value: '=',
+			size: '='
 		},
 		templateUrl: '/directives/piechart/piechart.html',
 		link: function(scope, elem, attrs) {
-			scope.size = Number(attrs.size);
 			scope.label = attrs.label;
 			scope.icon = attrs.icon;
 			scope.animate = attrs.animate != undefined ? true : false;
